@@ -23,54 +23,27 @@ void loop() {
 
   if(Serial.available()>0){
     state = Serial.read();
-    
+    digitalWrite(up, HIGH);
+  } 
+  else{
+    digitalWrite(up, LOW);
   }
 
-      
-      Serial.println((state));
-     
-    
-      if(state=='1')
-      {
-        digitalWrite(up, HIGH);
-        move.forward();
-        
-      }
-      else if(state==2)
-      {
-        digitalWrite(right, HIGH);
-      }
-      else if(state=='3')
-      {
-        digitalWrite(down, HIGH);
-      }
-      else if(state==4)
-      {
-        digitalWrite(left, HIGH);
-        
-      }
-      else
-      {
-        digitalWrite(up, LOW);
-        digitalWrite(right, LOW);
-        digitalWrite(down, LOW);
-        digitalWrite(left, LOW);
-        move.halt();
-      }
 
-      
-      {
-        
-      }
-//    
-//    if(Serial.state()==1)
-//    {
-//      
-//    }
-//    if(Serial.state()==0)
-//    {
-//      digitalWrite(led, LOW);
-//      
-//    }
+  if(state == 'n'){
+    move.forward();
+  }
+  else if(state == 'e'){
+    move.right();
+  }
+  else if(state == 's'){
+    move.backward();
+  }
+  else if(state == 'w'){
+    move.left(); 
+  }
+  else if(state == '0'){
+    move.halt();  
+  }
 
   }

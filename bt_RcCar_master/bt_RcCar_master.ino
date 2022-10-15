@@ -1,30 +1,34 @@
 
 int state=0;
+int vert, hor;
 
 void setup() 
 {
   Serial.begin(38400);
-  
+  Serial.flush();
 
 }
 
 void loop() 
 {
-//  Serial.write(1);
-//state=analogRead(A0);
-  Serial.println(analogRead(A0));
+  vert = analogRead(A0);
+  hor  = analogRead(A1);
 
-  if(analogRead(A0)>800)
+  if(vert >= 800 && hor > 200 && hor < 800)
   {
-    Serial.println();
-    Serial.write('1');
-    Serial.println();
-    
+    Serial.write('n');
   }
-  if(analogRead(A0)<=400)
+  else if(vert <= 200 && hor > 200 && hor < 800)
   {
-    Serial.println();
-    Serial.write('3');
-    Serial.println();
+    Serial.write('s');
   }
+  else if(hor <= 200 && vert > 200 && vert < 800){
+    Serial.write('w');  
+  }
+  else if (hor >= 800 && vert > 200 && vert < 800){
+    Serial.write('e');  
+  } else{
+      Serial.write('0');
+    }
+  delay(10);
 }
