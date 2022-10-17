@@ -8,7 +8,7 @@ char state='0';
 
 void setup() {
  
-  move.power(150);
+  move.power(90);
   
   pinMode(up, OUTPUT);
   pinMode(down, OUTPUT);
@@ -27,6 +27,7 @@ void loop() {
   } 
   else{
     digitalWrite(up, LOW);
+    //move.halt();  
   }
 
 
@@ -35,6 +36,20 @@ void loop() {
   }
   else if(state == 'e'){
     move.right();
+  }
+  else if(state =='r')
+  {
+    analogWrite(pwm1, move.getPower()/2);
+  analogWrite(pwm2, move.getPower());
+  digitalWrite(dir1, LOW);
+  digitalWrite(dir2, LOW);
+  }
+  else if(state =='l')
+  {
+    analogWrite(pwm1, move.getPower());
+  analogWrite(pwm2, move.getPower()/2);
+  digitalWrite(dir1, LOW);
+  digitalWrite(dir2, LOW);
   }
   else if(state == 's'){
     move.backward();

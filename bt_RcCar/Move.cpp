@@ -79,23 +79,23 @@ void Move::northwest()
 {
   analogWrite(pwm1, powerValue);
   analogWrite(pwm2, powerValue/2);
-    digitalWrite(dir1, LOW);
+  digitalWrite(dir1, LOW);
   digitalWrite(dir2, LOW);
 }
 
 void Move::southeast()
 {
-  analogWrite(pwm1, powerValue);
+  analogWrite(pwm1, powerValue / 2);
   analogWrite(pwm2, powerValue);
-    digitalWrite(dir1, HIGH);
+  digitalWrite(dir1, HIGH);
   digitalWrite(dir2, HIGH);
 }
 
 void Move::southwest()
 {
   analogWrite(pwm1, powerValue);
-  analogWrite(pwm2, powerValue);
-    digitalWrite(dir1, HIGH);
+  analogWrite(pwm2, powerValue / 2);
+  digitalWrite(dir1, HIGH);
   digitalWrite(dir2, HIGH);
 }
 

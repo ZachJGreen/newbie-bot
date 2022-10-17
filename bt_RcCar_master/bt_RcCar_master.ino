@@ -18,6 +18,14 @@ void loop()
   {
     Serial.write('n');
   }
+  else if(vert>=800 && hor>=800)
+  {
+  Serial.write('r');
+  }
+  else if(vert>=800 && hor<=200)
+  {
+  Serial.write('l');
+  }
   else if(vert <= 200 && hor > 200 && hor < 800)
   {
     Serial.write('s');
